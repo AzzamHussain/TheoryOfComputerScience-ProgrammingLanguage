@@ -1,6 +1,7 @@
 from Data_Type import Data_Type
 from var import Identifiers
 from conditional_statement import ConditionalStatementsLexer
+from loops import TraverseLoop, UntilLoop
 
 def main():
     # Sample input code
@@ -33,6 +34,29 @@ def main():
 
     # Tokenize the input code for conditional statements
     tokens_conditional = lexer.tokenize(input_codeC)
+
+    ################### LOOPS #######################
+
+    # Sample Traverse loop
+    traverse_loop = TraverseLoop(
+        initialization="i = 0",
+        condition1="i < 5",
+        condition2="i >= 0",
+        counter="i += 1",
+        body_statements=["print(i)"]
+    )
+    traverse_loop.execute()
+
+    # Sample Until loop
+    until_loop = UntilLoop(
+        data_type="int",
+        var_name="x",
+        value="0",
+        condition="x == 5",
+        body_statements=["print(x)"],
+        counter_statement="x += 1"
+    )
+    until_loop.execute()
 
     # Print the tokens
     print("Data Type Tokens:", tokens_data_type)
